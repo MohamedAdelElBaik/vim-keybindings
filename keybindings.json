@@ -1,8 +1,3 @@
-// "command": "workbench.action.toggleMaximizedPanel", // need work
-// "command": "workbench.action.toggleMaximizeEditorGroup",
-// "command": "workbench.action.toggleZenMode",
-// "command": "workbench.action.increaseViewSize",
-// Navigation
 [
   {
     "command": "workbench.action.navigateLeft",
@@ -20,6 +15,7 @@
     "command": "workbench.action.navigateDown",
     "key": "ctrl-j"
   },
+
   {
     "command": "workbench.action.showAllEditors",
     "key": "space ,",
@@ -67,7 +63,68 @@
     "key": "space space", // quick open
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
-
+  // window Management
+  {
+    "command": "workbench.action.closeGroup",
+    "key": "space w d",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "command": "workbench.action.toggleMaximizeEditorGroup",
+    "key": "space w m",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "command": "workbench.action.splitEditorRight",
+    "key": "space w v",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "command": "workbench.action.splitEditorDown",
+    "key": "space w s",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "command": "workbench.action.moveEditorToLeftGroup",
+    "key": "space w h",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "command": "workbench.action.moveEditorToBelowGroup",
+    "key": "space w j",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "command": "workbench.action.moveEditorToAboveGroup",
+    "key": "space w k",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "args": {
+      "commands": [
+        "workbench.action.moveEditorToRightGroup"
+      ]
+    },
+    "command": "runCommands",
+    "key": "space w l",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  // Buffue Management
+  {
+    "command": "workbench.action.closeEditorsAndGroup",
+    "key": "space b q",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "command": "workbench.action.closeActiveEditor",
+    "key": "space b d", // exit tab
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "command": "workbench.action.closeAllEditors",
+    "key": "space b o", // exit all tabs
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
   // Editor Management (including file operations)
   {
     "command": "workbench.action.toggleFullScreen",
@@ -76,35 +133,12 @@
   },
   {
     "command": "workbench.action.closeActiveEditor",
-    "key": "space w", // exit tab
+    "key": "space b d", // exit tab
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
     "command": "workbench.action.closeAllEditors",
-    "key": "space q", // exit all tabs
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "command": "workbench.action.moveEditorToLeftGroup",
-    "key": "space s h",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "command": "workbench.action.moveEditorToBelowGroup",
-    "key": "space s j",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "command": "workbench.action.moveEditorToAboveGroup",
-    "key": "space s k",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "args": {
-      "commands": ["workbench.action.moveEditorToRightGroup"]
-    },
-    "command": "runCommands",
-    "key": "space s l",
+    "key": "space b o", // exit all tabs
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
@@ -197,7 +231,6 @@
     "key": "space t h",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
-
   // Editor Actions
   {
     "command": "editor.action.clipboardCopyAction",
@@ -205,23 +238,13 @@
     "when": "vim.mode == 'Visual'"
   },
   {
-    "command": "editor.action.moveLinesDownAction",
-    "key": "shift-j",
-    "when": "vim.mode == 'VisualLine' && editorTextFocus"
-  },
-  {
-    "command": "editor.action.moveLinesUpAction",
-    "key": "shift-k",
-    "when": "vim.mode == 'VisualLine' && editorTextFocus"
-  },
-  {
     "command": "editor.action.showHover",
-    "key": "shift-h", // show hover
+    "key": "shift-k", // show hover
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
     "command": "editor.action.codeAction",
-    "key": "space a", // actions
+    "key": "space a", // action
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
@@ -266,7 +289,6 @@
     "key": "space n", // find next match
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
   },
-
   // File Explorer
   {
     "command": "renameFile",
